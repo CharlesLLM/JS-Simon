@@ -1,0 +1,43 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+#simon {
+  outline: 10px solid black;
+  opacity: 0.5;
+}
+
+.ligne {
+  display: flex;
+}
+
+.case {
+  width: 200px;
+  height: 200px;
+  border: 10px solid black;
+}
+
+#vert {
+  background-color: green;
+}
+
+#rouge {
+  background-color: red;
+}
+
+#bleu {
+  background-color: blue;
+}
+
+#jaune {
+  background-color: yellow;
+}
