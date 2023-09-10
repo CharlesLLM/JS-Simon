@@ -26,18 +26,18 @@ body {
   border: 10px solid black;
 }
 
-#vert {
+.vert {
   background-color: green;
 }
 
-#rouge {
+.rouge {
   background-color: red;
 }
 
-#bleu {
+.bleu {
   background-color: blue;
 }
 
-#jaune {
+.jaune {
   background-color: yellow;
 }
