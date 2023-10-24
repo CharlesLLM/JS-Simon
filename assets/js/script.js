@@ -1,10 +1,11 @@
-// BUTTON PLAY
+// Play putton
 const button = document.createElement("button");
 button.innerText = "Jouer";
+button.classList.add("button", "play-button");
 const buttonInterface = document.getElementById("interface");
 buttonInterface.appendChild(button);
 
-//EVENT BUTTON
-button.addEventListener("click", function() {
-    alert("JOUE");
+button.addEventListener("click", (e) => {
+  e.target.remove();
+  alert("JOUE");
 });
