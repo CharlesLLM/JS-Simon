@@ -55,6 +55,18 @@ h1 {
   font-size: 16px;
   cursor: pointer;
 }
+#interface button {
+  border: none;
+  background-color: white;
+  padding: 25%;
+  margin-top: -20px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#interface button:hover {
+  text-decoration: underline;
+}
 
 .case {
   position: absolute;
