@@ -1,11 +1,18 @@
 // Play putton
-const button = document.createElement("button");
-button.innerText = "Jouer";
-button.classList.add("button", "play-button");
-const buttonInterface = document.getElementById("interface");
-buttonInterface.appendChild(button);
+const playButton = document.createElement("button");
+playButton.innerText = "Jouer";
+playButton.classList.add("button", "play-button");
+const interface = document.getElementById("interface");
+interface.appendChild(playButton);
 
-button.addEventListener("click", (e) => {
+// Score
+const scoreDiv = document.createElement("div");
+scoreDiv.classList.add("score");
+let countScore = 0;
+scoreDiv.innerHTML = "Score: " + countScore;
+
+// Play
+playButton.addEventListener("click", (e) => {
   e.target.remove();
-  alert("JOUE");
+  interface.appendChild(scoreDiv);
 });
