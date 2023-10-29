@@ -1,4 +1,4 @@
-import { AIStart } from "./game.js";
+import { updateAIPattern } from "./game.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
@@ -15,10 +15,12 @@ const scoreDiv = document.createElement("div");
 scoreDiv.classList.add("score");
 let countScore = 0;
 scoreDiv.innerHTML = "Score: " + countScore;
+// AI pattern
+let AIPattern = [];
 
 // Play function
 playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
-  AIStart(colors);
+  AIPattern = updateAIPattern(colors, AIPattern);
 });
