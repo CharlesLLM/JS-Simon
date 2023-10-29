@@ -2,7 +2,7 @@ import { updateAIPattern } from "./game.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
-// Play putton
+// Play button
 const playButton = document.createElement("button");
 playButton.innerText = "Jouer";
 playButton.classList.add("play-button");
