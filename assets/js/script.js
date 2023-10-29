@@ -16,7 +16,7 @@ scoreDiv.classList.add("score");
 let countScore = 0;
 scoreDiv.innerHTML = "Score: " + countScore;
 
-// Play
+// Play function
 playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
