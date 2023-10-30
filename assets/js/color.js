@@ -4,7 +4,7 @@ function sleep(time) {
 }
 
 // Flashing
-function flashColor(cas) {
+export const flashColor = (cas) => {
   cas.classList.add('active');
   sleep(150).then(() => {
     cas.classList.remove('active');
