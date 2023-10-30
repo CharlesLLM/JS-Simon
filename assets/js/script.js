@@ -1,5 +1,5 @@
 import { updateAIPattern } from "./game.js";
-import { flashColor } from "./color.js";
+import { flashColor, sleep } from "./color.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
@@ -25,10 +25,17 @@ const cases = document.querySelectorAll('.case');
 playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
+
+  // TODO : Déplacer dans une boucle pour chaque tour (do...while)
   AIPattern = updateAIPattern(colors, AIPattern);
+  console.log(AIPattern);
+  AIPattern.forEach(element => {
+    flashColor(document.getElementsByClassName(element)[0]);
+    // TODO : Ajouter un sleep
+  });
 });
 
-// Flashing click
+// Flashing click (TEST)
 cases.forEach(cas => {
   cas.addEventListener('click', () => {
     flashColor(cas);

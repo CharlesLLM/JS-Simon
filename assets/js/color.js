@@ -1,5 +1,5 @@
 // Timer
-function sleep(time) {
+export const sleep = (time) => {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
