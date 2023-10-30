@@ -1,6 +1,3 @@
-// Cases
-const cases = document.querySelectorAll('.case');
-
 // Timer
 function sleep(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -13,10 +10,3 @@ function flashColor(cas) {
     cas.classList.remove('active');
   });
 }
-
-// Flashing click
-cases.forEach(cas => {
-  cas.addEventListener('click', () => {
-    flashColor(cas);
-  });
-});

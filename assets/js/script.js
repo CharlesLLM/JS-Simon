@@ -1,3 +1,5 @@
+import { flashColor } from "./color.js";
+
 // Play button
 const playButton = document.createElement("button");
 playButton.innerText = "Jouer";
@@ -11,8 +13,18 @@ scoreDiv.classList.add("score");
 let countScore = 0;
 scoreDiv.innerHTML = "Score: " + countScore;
 
+// Cases
+const cases = document.querySelectorAll('.case');
+
 // Play
 playButton.addEventListener("click", (e) => {
   e.target.remove();
   interface.appendChild(scoreDiv);
+});
+
+// Flashing click
+cases.forEach(cas => {
+  cas.addEventListener('click', () => {
+    flashColor(cas);
+  });
 });
