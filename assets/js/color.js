@@ -1,22 +1,22 @@
 // Cases
-const cases = document.querySelectorAll(".case");
+const cases = document.querySelectorAll('.case');
 
-// Timer flashing
+// Timer
 function sleep(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
 // Flashing
 function flashColor(cas) {
-  cas.classList.add("active");
+  cas.classList.add('active');
   sleep(150).then(() => {
-    cas.classList.remove("active");
+    cas.classList.remove('active');
   });
 }
 
 // Flashing click
 cases.forEach(cas => {
-  cas.addEventListener("click", () => {
+  cas.addEventListener('click', () => {
     flashColor(cas);
   });
 });
