@@ -11,39 +11,25 @@ scoreDiv.classList.add("score");
 let countScore = 0;
 scoreDiv.innerHTML = "Score: " + countScore;
 
-
-
+// Cases
 const cases = document.querySelectorAll('.case');
 
+function sleep(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
 
-// function test(){
-//   this.className += ' active';
-// }
-
-// setTimeout("test()", 2000);
+function flashColor(cas) {
+  cas.classList.add('active');
+  sleep(150).then(() => {
+    cas.classList.remove('active');
+  });
+}
 
 cases.forEach(cas => {
-  cas.addEventListener('click', function() {
-    this.className += ' active';
+  cas.addEventListener('click', () => {
+    flashColor(cas);
   });
 });
-
-
-
-
-
-
-// document.getElementsByClassName("case").addEventListener("click", function() {
-//   alert("Hello World!");
-// });
-
-
-
-
-
-
-
-
 
 // Play
 playButton.addEventListener("click", (e) => {
