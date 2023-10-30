@@ -1,4 +1,5 @@
 import { updateAIPattern } from "./game.js";
+import { flashColor } from "./color.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
@@ -17,10 +18,19 @@ let countScore = 0;
 scoreDiv.innerHTML = "Score: " + countScore;
 // AI pattern
 let AIPattern = [];
+// Cases
+const cases = document.querySelectorAll('.case');
 
 // Play function
 playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
   AIPattern = updateAIPattern(colors, AIPattern);
+});
+
+// Flashing click
+cases.forEach(cas => {
+  cas.addEventListener('click', () => {
+    flashColor(cas);
+  });
 });
