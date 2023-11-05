@@ -6,7 +6,7 @@ export const sleep = (time) => {
 // Flashing
 export const flashColor = (cas) => {
   cas.classList.add('active');
-  sleep(150).then(() => {
+  sleep(200).then(() => {
     cas.classList.remove('active');
   });
 }
