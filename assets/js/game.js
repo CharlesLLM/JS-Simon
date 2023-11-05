@@ -10,6 +10,7 @@ export const updateAIPattern = (colors, AIPattern) => {
   return AIPattern;
 }
 
+// AI Turn function
 export const AITurn = async (colors, AIPattern) => {
   AIPattern = updateAIPattern(colors, AIPattern);
   for (let i=0; i<AIPattern.length; i++) {
