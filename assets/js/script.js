@@ -1,5 +1,4 @@
-import { AITurn } from "./game.js";
-import { flashColor } from "./color.js";
+import { AITurn, userTurn } from "./game.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
@@ -11,8 +10,8 @@ gameInterface.appendChild(playButton);
 // Score
 const scoreDiv = document.createElement("div");
 scoreDiv.classList.add("score");
-let countScore = 0;
-scoreDiv.innerHTML = "Score: " + countScore;
+let score = 0;
+scoreDiv.innerHTML = "Score: " + score;
 // AI pattern
 let AIPattern = [];
 
@@ -21,4 +20,5 @@ playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
   AIPattern = AITurn(AIPattern);
+  score = userTurn(AIPattern);
 });
