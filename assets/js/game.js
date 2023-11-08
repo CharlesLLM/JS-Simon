@@ -38,6 +38,7 @@ export const userTurn = (AIPattern) => {
   let valid;
   cases.forEach((colorCase) => {
     colorCase.addEventListener("click", (e) => {
+      flashColor(e.target);
       userPattern.push(e.target.getAttribute("value"));
       valid = userCheck(userPattern, AIPattern);
       if (valid === false) {
@@ -61,4 +62,12 @@ const userCheck = (userPattern, AIPattern) => {
   }
 
   return true;
+}
+
+// Full turn function
+export const turn = (AIPattern) => {
+  AIPattern = AITurn(AIPattern);
+  userTurn(AIPattern);
+
+  return AIPattern;
 }
