@@ -20,5 +20,5 @@ playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
   AIPattern = AITurn(AIPattern);
-  score = userTurn(AIPattern);
+  userTurn(AIPattern);
 });
