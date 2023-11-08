@@ -1,6 +1,6 @@
 Infos           |            |
 |------------------|-------------|
-| Issue liée  | Close #6 |
+| Issue liée  | Close #ISSUE |
 | Type de PR | <ul><li>[ ] Nouvelle fonctionnalité</li><li>[ ] Bug fix</li><li>[ ] Amélioration</li></ul> |
 | Impacts | <ul><li>[ ] Back</li><li>[ ] Front</li></ul> |
 | Tests front | <ul><li>[ ] Responsive</li></ul> |
