@@ -1,4 +1,4 @@
-import { AITurn, userTurn } from "./game.js";
+import { turn } from "./game.js";
 
 // Game interface
 const gameInterface = document.getElementById("interface");
@@ -19,6 +19,5 @@ let AIPattern = [];
 playButton.addEventListener("click", (event) => {
   event.target.remove();
   gameInterface.appendChild(scoreDiv);
-  AIPattern = AITurn(AIPattern);
-  userTurn(AIPattern);
+  AIPattern = turn(AIPattern);
 });
