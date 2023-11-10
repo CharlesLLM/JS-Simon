@@ -1,7 +1,7 @@
 import { flashColor } from './color.js';
 
 // Update AI Pattern function
-export const updateAIPattern = (AIPattern) => {
+const updateAIPattern = (AIPattern) => {
   const colorCases = document.getElementsByClassName("case");
   const colors = [...colorCases].map((colorCase) => colorCase.getAttribute("value"));
   if (AIPattern.length > 1) {
@@ -19,11 +19,11 @@ export const updateAIPattern = (AIPattern) => {
 export const AITurn = (AIPattern) => {
   AIPattern = updateAIPattern(AIPattern);
   let i = 0;
-  let interval = setInterval(() => {
+  let AIinterval = setInterval(() => {
     const cas = document.querySelector(`[value="${AIPattern[i]}"]`);
     flashColor(cas);
     if (i === AIPattern.length-1) {
-      clearInterval(interval);
+      clearInterval(AIinterval);
     }
     i++;
   }, 750);
@@ -31,30 +31,8 @@ export const AITurn = (AIPattern) => {
   return AIPattern;
 }
 
-// User turn function
-export const userTurn = (AIPattern) => {
-  const cases = [...document.getElementsByClassName("case")];
-  let userPattern = [];
-  let valid;
-  cases.forEach((colorCase) => {
-    colorCase.addEventListener("click", (e) => {
-      flashColor(e.target);
-      userPattern.push(e.target.getAttribute("value"));
-      valid = userCheck(userPattern, AIPattern);
-      if (valid === false) {
-        return alert("Perdu !");
-        // restart();
-      }
-      if (userPattern.length === AIPattern.length && valid === true) {
-        userPattern = [];
-        AIPattern = turn(AIPattern);
-      }
-    });
-  });
-}
-
 // Check user pattern function
-const userCheck = (userPattern, AIPattern) => {
+export const userCheck = (userPattern, AIPattern) => {
   for (let i = 0; i < userPattern.length; i++) {
     if (userPattern[i] !== AIPattern[i]) {
       return false;
@@ -62,12 +40,4 @@ const userCheck = (userPattern, AIPattern) => {
   }
 
   return true;
-}
-
-// Full turn function
-export const turn = (AIPattern) => {
-  AIPattern = AITurn(AIPattern);
-  userTurn(AIPattern);
-
-  return AIPattern;
 }
