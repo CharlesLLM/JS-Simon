@@ -20,8 +20,8 @@ export const AITurn = (AIPattern) => {
   AIPattern = updateAIPattern(AIPattern);
   let i = 0;
   let AIinterval = setInterval(() => {
-    const cas = document.querySelector(`[value="${AIPattern[i]}"]`);
-    flashColor(cas);
+    const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
+    flashColor(colorCase);
     if (i === AIPattern.length-1) {
       clearInterval(AIinterval);
     }
