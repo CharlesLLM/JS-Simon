@@ -15,7 +15,7 @@ const updateAIPattern = (AIPattern) => {
   return AIPattern;
 }
 
-// AI Turn function
+// Turn of the AI
 export const AITurn = (AIPattern) => {
   AIPattern = updateAIPattern(AIPattern);
   let i = 0;
@@ -31,7 +31,7 @@ export const AITurn = (AIPattern) => {
   return AIPattern;
 }
 
-// Check user pattern function
+// Check if patterns match
 export const userCheck = (userPattern, AIPattern) => {
   for (let i = 0; i < userPattern.length; i++) {
     if (userPattern[i] !== AIPattern[i]) {
