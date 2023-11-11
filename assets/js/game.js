@@ -1,23 +1,43 @@
-import { flashColor, sleep } from './color.js';
+import { flashColor } from './color.js';
 
 // Update AI Pattern function
-export const updateAIPattern = (colors, AIPattern) => {
-  const toAddNumber = AIPattern.length > 0 ? 1 : 3;
-  for (let i=0; i<toAddNumber; i++) {
+const updateAIPattern = (AIPattern) => {
+  const colorCases = document.getElementsByClassName("case");
+  const colors = [...colorCases].map((colorCase) => colorCase.getAttribute("value"));
+  if (AIPattern.length > 1) {
     AIPattern.push(colors[Math.floor(Math.random() * colors.length)]);
+  } else {
+    for (let i=0; i<3; i++) {
+      AIPattern.push(colors[Math.floor(Math.random() * colors.length)]);
+    }
   }
 
   return AIPattern;
 }
 
-// AI Turn function
-export const AITurn = async (colors, AIPattern) => {
-  AIPattern = updateAIPattern(colors, AIPattern);
-  for (let i=0; i<AIPattern.length; i++) {
-    const cas = document.querySelector(`[value="${AIPattern[i]}"]`);
-    flashColor(cas);
-    await sleep(500);
-  }
+// Turn of the AI
+export const AITurn = (AIPattern) => {
+  AIPattern = updateAIPattern(AIPattern);
+  let i = 0;
+  let AIinterval = setInterval(() => {
+    const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
+    flashColor(colorCase);
+    if (i === AIPattern.length-1) {
+      clearInterval(AIinterval);
+    }
+    i++;
+  }, 750);
 
   return AIPattern;
+}
+
+// Check if patterns match
+export const userCheck = (userPattern, AIPattern) => {
+  for (let i = 0; i < userPattern.length; i++) {
+    if (userPattern[i] !== AIPattern[i]) {
+      return false;
+    }
+  }
+
+  return true;
 }
