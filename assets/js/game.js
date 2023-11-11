@@ -1,4 +1,4 @@
-import { flashColor } from './color.js';
+import { flashColor } from "./color.js";
 
 // Update AI Pattern function
 const updateAIPattern = (AIPattern) => {
