@@ -19,6 +19,11 @@ scoreDiv.classList.add("score");
 let score = 0;
 scoreDiv.innerHTML = "Score: " + score;
 
+// Best score
+const bestScoreSpan = document.getElementById("best-score");
+localStorage.setItem("simonBestScore", localStorage.getItem("simonBestScore") !== null ? localStorage.getItem("simonBestScore") : 0)
+bestScoreSpan.innerHTML = localStorage.getItem("simonBestScore");
+
 // Patterns
 let AIPattern = [];
 let userPattern = [];
@@ -50,6 +55,7 @@ const userTurn = (e) => {
   if (userPattern.length === AIPattern.length && valid === true) {
     score++;
     scoreDiv.innerHTML = "Score: " + score;
+    checkBestScore(score);
     userPattern = [];
     AIPattern = AITurn(AIPattern);
   }
@@ -63,4 +69,12 @@ const reset = () => {
   cases.forEach((colorCase) => colorCase.removeEventListener("click", userTurn));
   gameInterface.removeChild(scoreDiv);
   gameInterface.appendChild(playButton);
+}
+
+const checkBestScore = (score) => {
+  const bestScore = localStorage.getItem("simonBestScore");
+  if (bestScore === null || score > bestScore) {
+    localStorage.setItem("simonBestScore", score);
+  }
+  bestScoreSpan.innerHTML = localStorage.getItem("simonBestScore");
 }
