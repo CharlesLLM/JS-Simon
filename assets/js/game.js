@@ -1,5 +1,5 @@
-import { flashColor } from './color.js';  
-import playSound from './sound.js';
+import { flashColor } from './color.js';
+import { playSound, clickSound } from './sound.js';
 
 // Update AI Pattern function
 const updateAIPattern = (AIPattern) => {
@@ -16,35 +16,37 @@ const updateAIPattern = (AIPattern) => {
   return AIPattern;
 }
 
-// Turn of the AI
-export const AITurn = (AIPattern) => {
-  AIPattern = updateAIPattern(AIPattern);
-  let i = 0;
-  let AIinterval = setInterval(() => {
-    const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
+  // Turn of the AI
+  export const AITurn = (AIPattern) => {
+    AIPattern = updateAIPattern(AIPattern);
+    let i = 0;
+    let AIinterval = setInterval(() => {
+      const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
 
-    // Sound
-    const soundClass = colorCase.getAttribute('data-sound');
-    if (colorCase.classList.contains('play-sound')) {
-      playSound(soundClass);
-    }
+      // Sound
+      const soundClass = colorCase.getAttribute('data-sound');
+      if (colorCase.classList.contains('play-sound')) {
+        playSound(soundClass);
+      }
+      
+      flashColor(colorCase);
+      if (i === AIPattern.length-1) {
+        clearInterval(AIinterval);
+        clickSound();
+      }
+      i++;
+    }, 750);
     
-    flashColor(colorCase);
-    if (i === AIPattern.length-1) {
-      clearInterval(AIinterval);
-    }
-    i++;
-  }, 750);
-
-  return AIPattern;
-}
+    return AIPattern;
+  }
 
 // Check if patterns match
 export const userCheck = (userPattern, AIPattern) => {
   for (let i = 0; i < userPattern.length; i++) {
     if (userPattern[i] !== AIPattern[i]) {
+
       return false;
-    }
+    } 
   }
 
   return true;
