@@ -1,5 +1,4 @@
-import { flashColor } from './color.js';
-import { playSound, clickSound } from './sound.js';
+import { flashColor } from "./color.js";
 
 // Update AI Pattern function
 const updateAIPattern = (AIPattern) => {
@@ -22,17 +21,9 @@ const updateAIPattern = (AIPattern) => {
     let i = 0;
     let AIinterval = setInterval(() => {
       const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
-
-      // Sound
-      const soundClass = colorCase.getAttribute('data-sound');
-      if (colorCase.classList.contains('play-sound')) {
-        playSound(soundClass);
-      }
-      
       flashColor(colorCase);
       if (i === AIPattern.length-1) {
         clearInterval(AIinterval);
-        clickSound();
       }
       i++;
     }, 750);

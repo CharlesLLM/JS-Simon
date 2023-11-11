@@ -1,4 +1,4 @@
-import { flashColor } from './color.js';
+import { flashColor } from "./color.js";
 import { AITurn, userCheck } from "./game.js";
 
 // Game interface where play button and score are displayed
