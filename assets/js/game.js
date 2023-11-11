@@ -21,6 +21,8 @@ export const AITurn = (AIPattern) => {
   let i = 0;
   let AIinterval = setInterval(() => {
     const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
+    playSound(`assets/song/${AIPattern[i]}.mp3`);
+    console.log('${AIPattern[i]}');
     flashColor(colorCase);
     if (i === AIPattern.length-1) {
       clearInterval(AIinterval);
@@ -40,4 +42,11 @@ export const userCheck = (userPattern, AIPattern) => {
   }
 
   return true;
+}
+
+
+// son
+function playSound(soundFileName) {
+  const audio = new Audio(`assets/song/${soundFileName}`);
+  audio.play();
 }
