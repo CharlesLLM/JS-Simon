@@ -27,7 +27,7 @@ export const AITurn = (AIPattern) => {
     }
     i++;
   }, 750);
-  
+
   return AIPattern;
 }
 
@@ -35,9 +35,8 @@ export const AITurn = (AIPattern) => {
 export const userCheck = (userPattern, AIPattern) => {
   for (let i = 0; i < userPattern.length; i++) {
     if (userPattern[i] !== AIPattern[i]) {
-
       return false;
-    } 
+    }
   }
 
   return true;
