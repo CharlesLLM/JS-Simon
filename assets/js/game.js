@@ -23,7 +23,7 @@ export const AITurn = (AIPattern) => {
   let AIinterval = setInterval(() => {
     const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
 
-    // sound
+    // Sound
     const soundClass = colorCase.getAttribute('data-sound');
     if (colorCase.classList.contains('play-sound')) {
       playSound(soundClass);
