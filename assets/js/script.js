@@ -42,7 +42,7 @@ const userTurn = (e) => {
   valid = userCheck(userPattern, AIPattern);
   // If the user entered a wrong pattern
   if (valid === false) {
-    alert(`Perdu !\nScore: ${score}`);
+    alert(`Perdu !\nScore : ${score}`);
     reset();
   }
 
