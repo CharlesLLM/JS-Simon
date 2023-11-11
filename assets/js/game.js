@@ -15,21 +15,21 @@ const updateAIPattern = (AIPattern) => {
   return AIPattern;
 }
 
-  // Turn of the AI
-  export const AITurn = (AIPattern) => {
-    AIPattern = updateAIPattern(AIPattern);
-    let i = 0;
-    let AIinterval = setInterval(() => {
-      const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
-      flashColor(colorCase);
-      if (i === AIPattern.length-1) {
-        clearInterval(AIinterval);
-      }
-      i++;
-    }, 750);
-    
-    return AIPattern;
-  }
+// Turn of the AI
+export const AITurn = (AIPattern) => {
+  AIPattern = updateAIPattern(AIPattern);
+  let i = 0;
+  let AIinterval = setInterval(() => {
+    const colorCase = document.querySelector(`[value="${AIPattern[i]}"]`);
+    flashColor(colorCase);
+    if (i === AIPattern.length-1) {
+      clearInterval(AIinterval);
+    }
+    i++;
+  }, 750);
+  
+  return AIPattern;
+}
 
 // Check if patterns match
 export const userCheck = (userPattern, AIPattern) => {
