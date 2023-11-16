@@ -21,7 +21,7 @@ Le jeu de Simon est un classique jeu de mémoire où le joueur doit reproduire u
 ## Installation
 
 ```bash
-git clone https://github.com/votre-utilisateur/simon-game.git
+git clone https://github.com/CharlesLLM/JS-Simon.git
 ```
 
 ## Capture d'écran
